@@ -7,7 +7,7 @@
 
 using namespace std;
 
-DWORD GetModuleBaseAddress(TCHAR* lpszModuleName, DWORD pID) {
+DWORD GetModuleBaseAddress(TCHAR* lpszModuleName, DWORD pID) { //This part of the code is to set up the pointer addresses. I found it online and did not make this part of the code.
     DWORD dwModuleBaseAddress = 0;
     HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, pID); // make snapshot of all modules within process
     MODULEENTRY32 ModuleEntry32 = { 0 };
@@ -29,7 +29,7 @@ DWORD GetModuleBaseAddress(TCHAR* lpszModuleName, DWORD pID) {
     return dwModuleBaseAddress;
 }
 
-DWORD GetPointerAddress(HWND hwnd, DWORD gameBaseAddr, DWORD address, vector<DWORD> offsets)
+DWORD GetPointerAddress(HWND hwnd, DWORD gameBaseAddr, DWORD address, vector<DWORD> offsets) //This part of the code is to set up the pointer addresses. I found it online and did not make this part of the code either.
 {
     DWORD pID = NULL; // Game process ID
     GetWindowThreadProcessId(hwnd, &pID);
@@ -46,6 +46,8 @@ DWORD GetPointerAddress(HWND hwnd, DWORD gameBaseAddr, DWORD address, vector<DWO
     }
     return pointeraddress += offsets.at(offsets.size() - 1); // adding the last offset
 }
+
+//Here is the stuff that I programmed now.
 
 int weirdhacklol()
 {
